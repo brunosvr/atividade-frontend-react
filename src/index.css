@@ -1,4 +1,65 @@
+@font-face {
+  font-family: Inter;
+  src: url('./assets/fonts/inter-regular.ttf') format('truetype');
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Inter;
+  src: url('./assets/fonts/inter-semibold.ttf') format('truetype');
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Inter;
+  src: url('./assets/fonts/inter-bold.ttf') format('truetype');
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+}
+
+:root {
+  --color-background: #fdfcf9;
+  --color-sidebar: #074f40;
+  --color-nav-active: #2c675b;
+  --color-heading: #075344;
+  --color-body: #264f52;
+  --color-border: #c9d3df;
+  --color-placeholder: #8a98ac;
+  --color-action: #df441c;
+  font-family: Inter, sans-serif;
+  font-synthesis: none;
+  color: var(--color-body);
+  background: var(--color-background);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
-  font-family: sans-serif;
+}
+
+button, input {
+  font: inherit;
+}
+
+button, a, input {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:focus-visible, a:focus-visible {
+  outline: 3px solid var(--color-heading);
+  outline-offset: 5px;
 }
