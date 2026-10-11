@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { matchPath, Navigate, Route, Routes, useLocation } from 'react-router-dom';
 import Sidebar from './components/Sidebar';
 import CollectionPage from './pages/CollectionPage';
+import RoutePage from './pages/RoutePage';
 import { navigation } from './data/navigation';
 import './App.css';
 
@@ -12,6 +13,7 @@ function App() {
 
   const [address, setAddress] = useState('');
   const [submittedAddress, setSubmittedAddress] = useState('');
+  const [selectedRegion, setSelectedRegion] = useState('centro');
 
   useEffect(() => {
     document.title = `${currentPage.label} | Olinda Limpa`;
