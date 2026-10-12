@@ -3,6 +3,7 @@ import { matchPath, Navigate, Route, Routes, useLocation } from 'react-router-do
 import Sidebar from './components/Sidebar';
 import CollectionPage from './pages/CollectionPage';
 import RoutePage from './pages/RoutePage';
+import DisposalPage from './pages/DisposalPage';
 import { navigation } from './data/navigation';
 import './App.css';
 
@@ -14,6 +15,9 @@ function App() {
   const [address, setAddress] = useState('');
   const [submittedAddress, setSubmittedAddress] = useState('');
   const [selectedRegion, setSelectedRegion] = useState('centro');
+  const [query, setQuery] = useState('');
+  const [category, setCategory] = useState('all');
+  const [openGuides, setOpenGuides] = useState([]);
 
   useEffect(() => {
     document.title = `${currentPage.label} | Olinda Limpa`;
@@ -45,6 +49,17 @@ function App() {
               <RoutePage selectedRegion={selectedRegion} setSelectedRegion={setSelectedRegion} />
             }
           />
+          <Route
+            path="/descarte-correto"
+            element={
+              <DisposalPage
+                query={query}
+                setQuery={setQuery}
+                category={category}
+                setCategory={setCategory}
+                openGuides={openGuides}
+                setOpenGuides={setOpenGuides}
+              />
             }
           />
             }
