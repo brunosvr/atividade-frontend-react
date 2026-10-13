@@ -4,6 +4,7 @@ import Sidebar from './components/Sidebar';
 import CollectionPage from './pages/CollectionPage';
 import RoutePage from './pages/RoutePage';
 import DisposalPage from './pages/DisposalPage';
+import NoticesPage from './pages/NoticesPage';
 import { navigation } from './data/navigation';
 import './App.css';
 
@@ -18,6 +19,10 @@ function App() {
   const [query, setQuery] = useState('');
   const [category, setCategory] = useState('all');
   const [openGuides, setOpenGuides] = useState([]);
+  const [noticeNeighborhood, setNoticeNeighborhood] = useState('all');
+  const [noticeCategory, setNoticeCategory] = useState('all');
+  const [onlyUnread, setOnlyUnread] = useState(false);
+  const [readNotices, setReadNotices] = useState([]);
 
   useEffect(() => {
     document.title = `${currentPage.label} | Olinda Limpa`;
@@ -62,6 +67,19 @@ function App() {
               />
             }
           />
+          <Route
+            path="/avisos"
+            element={
+              <NoticesPage
+                neighborhood={noticeNeighborhood}
+                setNeighborhood={setNoticeNeighborhood}
+                category={noticeCategory}
+                setCategory={setNoticeCategory}
+                onlyUnread={onlyUnread}
+                setOnlyUnread={setOnlyUnread}
+                readNotices={readNotices}
+                setReadNotices={setReadNotices}
+              />
             }
           />
           <Route path="*" element={<Navigate to="/" replace />} />

@@ -1,0 +1,155 @@
+.toolbar {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 32px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.neighborhoodField {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 230px;
+  flex-shrink: 0;
+}
+
+.neighborhoodField label,
+.filters legend {
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.neighborhoodField select {
+  width: 100%;
+  height: 42px;
+  padding: 0 12px;
+  border: 1px solid var(--color-border);
+  border-radius: 3px;
+  background: #fff;
+  color: var(--color-heading);
+  font: inherit;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.neighborhoodField select:focus-visible,
+.readingFilters input:focus-visible {
+  outline: 2px solid var(--color-heading);
+  outline-offset: 3px;
+}
+
+.visuallyHidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.filters {
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.filters legend {
+  margin-bottom: 8px;
+  padding: 0;
+}
+
+.filterOptions {
+  display: flex;
+  gap: 24px;
+}
+
+.filterButton {
+  height: 42px;
+  padding: 0 0 4px;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  background: transparent;
+  color: var(--color-body);
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.filterButton:hover {
+  border-bottom-color: var(--color-border);
+}
+
+.filterButton.selected {
+  border-bottom-color: var(--color-heading);
+  color: var(--color-heading);
+  font-weight: 600;
+}
+
+.listHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  min-height: 64px;
+  font-size: 13px;
+  line-height: 20px;
+}
+
+.results {
+  margin: 0;
+}
+
+.readingFilters {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.readingFilters label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.readingFilters input {
+  width: 16px;
+  height: 16px;
+  margin: 0;
+  accent-color: var(--color-heading);
+  cursor: pointer;
+}
+
+.readingFilters button {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--color-body);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.list {
+  border-top: 1px solid var(--color-border);
+}
+
+.empty {
+  padding: 48px 0;
+  border-top: 1px solid var(--color-border);
+}
+
+.empty h2 {
+  margin: 0 0 8px;
+  color: var(--color-heading);
+  font-size: 20px;
+}
+
+.empty p {
+  margin: 0;
+  font-size: 16px;
+  line-height: 24px;
+}
