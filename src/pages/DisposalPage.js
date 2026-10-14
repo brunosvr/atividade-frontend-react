@@ -36,6 +36,7 @@ function DisposalPage(props) {
   function clearFilters() {
     props.setQuery('');
     props.setCategory('all');
+    searchInput.current.focus();
   }
 
   return (

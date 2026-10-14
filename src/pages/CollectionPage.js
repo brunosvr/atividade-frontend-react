@@ -18,6 +18,7 @@ function CollectionPage(props) {
 
   function selectNeighborhood(neighborhood) {
     updateAddress(neighborhood);
+    addressInput.current.focus();
   }
 
   function handleSubmit(event) {

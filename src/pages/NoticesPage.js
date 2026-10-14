@@ -39,12 +39,17 @@ function NoticesPage(props) {
 
       return [...previousNotices, id];
     });
+
+    if (props.onlyUnread) {
+      unreadInput.current.focus();
+    }
   }
 
   function clearFilters() {
     props.setNeighborhood('all');
     props.setCategory('all');
     props.setOnlyUnread(false);
+    neighborhoodInput.current.focus();
   }
 
   return (
