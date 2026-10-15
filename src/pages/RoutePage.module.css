@@ -201,3 +201,41 @@
   color: var(--color-heading);
   font-weight: 600;
 }
+
+@media (max-width: 1199px) {
+  .regionOptions {
+    justify-content: space-between;
+    gap: 12px;
+  }
+
+  .regionStatus {
+    white-space: normal;
+  }
+
+  .routeDetailsHeading {
+    flex-wrap: wrap;
+    gap: 8px 16px;
+  }
+
+  .routeMetrics {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+  }
+
+  .arrival {
+    grid-column: 1 / -1;
+  }
+
+  .routeMetrics dd {
+    line-height: 28px;
+  }
+
+  .arrival dd {
+    line-height: 40px;
+  }
+
+  .routeStep {
+    grid-template-columns: 24px minmax(0, 1fr) 100px;
+    gap: 8px;
+  }
+}

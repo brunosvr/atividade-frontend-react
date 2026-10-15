@@ -91,3 +91,31 @@
 .read .content h2 {
   font-weight: 400;
 }
+
+@media (max-width: 1199px) {
+  .card {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 12px;
+  }
+
+  .metadata {
+    flex-direction: row;
+    gap: 12px;
+    padding: 0;
+  }
+
+  .actions {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 0;
+  }
+
+  .actions button,
+  .destination {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+  }
+}

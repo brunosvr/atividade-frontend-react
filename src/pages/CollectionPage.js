@@ -36,10 +36,11 @@ function CollectionPage(props) {
 
   return (
     <section id="consultar-coleta" aria-labelledby="collection-title">
-      <h1 id="collection-title">Consulte a coleta da sua rua</h1>
+      <h1 id="collection-title">Consulte a coleta<span className={styles.titleEnding}> da sua rua</span></h1>
       <p className={styles.pageDescription}>
         Dias e horários de coleta em Olinda.<br />
-        Digite sua rua ou escolha um bairro.
+        <span className={styles.desktopDescription}>Digite sua rua ou escolha um bairro.</span>
+        <span className={styles.mobileDescription}>Informe seu endereço para consultar.</span>
       </p>
       <form className={styles.collectionForm} onSubmit={handleSubmit}>
         <label htmlFor="address">Rua ou bairro</label>

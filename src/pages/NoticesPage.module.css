@@ -153,3 +153,44 @@
   font-size: 16px;
   line-height: 24px;
 }
+
+@media (max-width: 1199px) {
+  .toolbar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 24px;
+  }
+
+  .neighborhoodField {
+    width: 100%;
+  }
+
+  .neighborhoodField select {
+    height: 48px;
+  }
+
+  .filterOptions {
+    flex-wrap: wrap;
+    gap: 0 20px;
+  }
+
+  .filterButton {
+    min-height: 44px;
+  }
+
+  .listHeader {
+    flex-wrap: wrap;
+    gap: 4px 16px;
+    padding: 16px 0;
+  }
+
+  .readingFilters {
+    flex-wrap: wrap;
+    gap: 0 16px;
+  }
+
+  .readingFilters label,
+  .readingFilters button {
+    min-height: 44px;
+  }
+}

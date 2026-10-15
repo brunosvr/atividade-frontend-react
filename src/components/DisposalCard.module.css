@@ -135,3 +135,29 @@
   text-underline-offset: 3px;
   overflow-wrap: anywhere;
 }
+
+@media (max-width: 1199px) {
+  .details summary {
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-areas: 'category action' 'title title' 'examples examples';
+    gap: 8px 12px;
+  }
+
+  .category {
+    padding: 0;
+  }
+
+  .summaryAction {
+    gap: 8px;
+    font-size: 12px;
+  }
+
+  .instructions {
+    padding: 20px;
+  }
+
+  .instructionColumns {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}

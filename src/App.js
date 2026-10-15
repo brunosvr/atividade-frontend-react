@@ -23,6 +23,7 @@ function App() {
   const [noticeCategory, setNoticeCategory] = useState('all');
   const [onlyUnread, setOnlyUnread] = useState(false);
   const [readNotices, setReadNotices] = useState([]);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     document.title = `${currentPage.label} | Olinda Limpa`;
@@ -34,8 +35,8 @@ function App() {
 
   return (
     <div className="app-shell">
-      <Sidebar activePath={currentPage.path} />
-      <main className="main-content">
+      <Sidebar activePath={currentPage.path} menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
+      <main className={`main-content ${menuOpen ? 'menu-open' : ''}`}>
         <Routes>
           <Route
             path="/"

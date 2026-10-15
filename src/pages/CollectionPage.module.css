@@ -135,3 +135,78 @@
   margin: 0;
 }
 
+.mobileDescription {
+  display: none;
+}
+
+@media (max-width: 1199px) {
+  .titleEnding {
+    display: block;
+  }
+
+  .pageDescription {
+    margin: 16px 0 32px;
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  .desktopDescription {
+    display: none;
+  }
+
+  .mobileDescription {
+    display: inline;
+  }
+
+  .collectionForm label {
+    margin-bottom: 8px;
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  .collectionForm input {
+    height: 56px;
+    padding: 0 16px;
+    border-width: 1px;
+    border-radius: 4px;
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  .collectionForm input::placeholder {
+    color: #77869a;
+  }
+
+  .neighborhoodSuggestions {
+    display: flex;
+    gap: clamp(12px, calc(100vw - 366px), 24px);
+    width: 100%;
+    height: 44px;
+    margin-top: 16px;
+  }
+
+  .neighborhoodSuggestions button {
+    min-height: 44px;
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  .submitButton {
+    width: 100%;
+    height: 56px;
+    margin-top: 16px;
+    font-size: 18px;
+    line-height: 24px;
+  }
+
+  .searchFeedback {
+    font-size: 16px;
+    line-height: 24px;
+    overflow-wrap: anywhere;
+  }
+
+  .scheduleDetails {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}

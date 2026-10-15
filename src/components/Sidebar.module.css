@@ -67,3 +67,94 @@
   outline-offset: -4px;
 }
 
+.menuButton,
+.menuLabel {
+  display: none;
+}
+
+@media (max-width: 1199px) {
+  .sidebar {
+    flex: none;
+    padding: 0;
+  }
+
+  .menuOpen {
+    min-height: 100dvh;
+  }
+
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 88px;
+    padding: 0 24px;
+  }
+
+  .brand {
+    height: auto;
+    padding: 0;
+  }
+
+  .brandName {
+    font-size: 22px;
+    line-height: 33px;
+  }
+
+  .brandService {
+    font-size: 13px;
+    line-height: 20px;
+  }
+
+  .menuButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: none;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    border: 0;
+    background: transparent;
+  }
+
+  .menuButton:focus-visible {
+    outline-color: #fff;
+    outline-offset: 0;
+  }
+
+  .menuButton img {
+    display: block;
+  }
+
+  .menu {
+    display: none;
+    padding: 32px 24px;
+  }
+
+  .menuOpen .menu {
+    display: block;
+  }
+
+  .menuLabel {
+    display: block;
+    margin: 0 0 8px;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 21px;
+  }
+
+  .navigation {
+    gap: 8px;
+    margin: 0;
+  }
+
+  .navigationItem {
+    gap: 16px;
+    width: 100%;
+    height: 56px;
+    padding: 0 16px;
+    border-radius: 8px;
+    font-size: 16px;
+    line-height: 24px;
+  }
+}
