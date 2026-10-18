@@ -37,7 +37,8 @@
   }
 
   .main-content.menu-open {
-    display: none;
+    visibility: hidden;
+    transition: visibility 0s linear 0.25s;
   }
 
   .main-content h1 {
