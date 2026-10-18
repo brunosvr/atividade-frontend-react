@@ -131,7 +131,7 @@
     display: block;
   }
 
- .menu {
+.menu {
     position: absolute;
     top: 100%;
     left: 0;
@@ -142,25 +142,67 @@
     padding: 32px 24px;
     overflow-y: auto;
     background: var(--color-sidebar);
-    opacity: 0;
     visibility: hidden;
-    transform: translateY(-12px);
-    transition: opacity 0.25s ease, transform 0.25s ease, visibility 0s linear 0.25s;
+    clip-path: inset(0 0 100% 0);
+    transition: clip-path 0.4s cubic-bezier(0.4, 0, 0.2, 1), visibility 0s linear 0.4s;
   }
 
- .menuOpen .menu {
-    opacity: 1;
+  .menuOpen .menu {
     visibility: visible;
-    transform: none;
-    transition: opacity 0.25s ease, transform 0.25s ease, visibility 0s;
+    clip-path: inset(0 0 0 0);
+    transition: clip-path 0.4s cubic-bezier(0.4, 0, 0.2, 1), visibility 0s;
   }
- 
-  @media (prefers-reduced-motion: reduce) {
-    .menu,
-    .menuOpen .menu {
-      transition: none;
+
+  .menuLabel,
+  .navigation li {
+    opacity: 0;
+    transform: translateY(-14px);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+  }
+
+  .menuOpen .menuLabel,
+  .menuOpen .navigation li {
+    opacity: 1;
+    transform: none;
+    transition: opacity 0.35s ease, transform 0.35s ease;
+  }
+
+  .menuOpen .menuLabel { transition-delay: 0.1s; }
+  .menuOpen .navigation li:nth-child(1) { transition-delay: 0.16s; }
+  .menuOpen .navigation li:nth-child(2) { transition-delay: 0.22s; }
+  .menuOpen .navigation li:nth-child(3) { transition-delay: 0.28s; }
+  .menuOpen .navigation li:nth-child(4) { transition-delay: 0.34s; }
+
+  .iconAnimated {
+    animation: iconTurn 0.3s ease;
+  }
+
+  @keyframes iconTurn {
+    from {
+      opacity: 0;
+      transform: rotate(-90deg) scale(0.6);
+    }
+    to {
+      opacity: 1;
+      transform: none;
     }
   }
+
+  @media (prefers-reduced-motion: reduce) {
+    .menu,
+    .menuOpen .menu,
+    .menuLabel,
+    .navigation li,
+    .menuOpen .menuLabel,
+    .menuOpen .navigation li {
+      transition: none;
+    }
+
+    .iconAnimated {
+      animation: none;
+    }
+  }
+  
   .menuLabel {
     display: block;
     margin: 0 0 8px;

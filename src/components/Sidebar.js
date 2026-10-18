@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import menuIcon from '../assets/icons/mobile/menu.svg';
 import closeIcon from '../assets/icons/mobile/fechar.svg';
@@ -7,6 +7,7 @@ import styles from './Sidebar.module.css';
 
 function Sidebar(props) {
   const menuButton = useRef(null);
+    const [toggled, setToggled] = useState(false);
   useEffect(() => {
   if (!props.menuOpen || !window.matchMedia('(max-width: 1199px)').matches) {
     return undefined;
@@ -22,6 +23,7 @@ function Sidebar(props) {
 }, [props.menuOpen]);
 
   function toggleMenu() {
+    setToggled(true);
     props.setMenuOpen(!props.menuOpen);
   }
 
@@ -54,7 +56,12 @@ function Sidebar(props) {
           aria-controls="main-navigation"
           onClick={toggleMenu}
         >
-          <img src={props.menuOpen ? closeIcon : menuIcon} alt="" />
+            <img
+              key={props.menuOpen ? 'close' : 'open'}
+              className={toggled ? styles.iconAnimated : undefined}
+              src={props.menuOpen ? closeIcon : menuIcon}
+             alt=""
+            />
         </button>
       </div>
       <nav id="main-navigation" className={styles.menu} aria-label="Menu principal">
