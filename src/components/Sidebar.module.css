@@ -80,11 +80,11 @@
 @media (max-width: 1199px) {
   .sidebar {
     flex: none;
-    padding: 0;
-  }
-
-  .menuOpen {
-    min-height: 100dvh;
+    align-self: stretch;
+    position: relative;   
+    z-index: 10;          
+    height: auto;
+    overflow-y: visible;
   }
 
   .header {
@@ -131,15 +131,36 @@
     display: block;
   }
 
-  .menu {
-    display: none;
+ .menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    box-sizing: border-box;
+    height: calc(100vh - 88px);
+    height: calc(100dvh - 88px);
     padding: 32px 24px;
+    overflow-y: auto;
+    background: var(--color-sidebar);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-12px);
+    transition: opacity 0.25s ease, transform 0.25s ease, visibility 0s linear 0.25s;
   }
 
-  .menuOpen .menu {
-    display: block;
+ .menuOpen .menu {
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    transition: opacity 0.25s ease, transform 0.25s ease, visibility 0s;
   }
-
+ 
+  @media (prefers-reduced-motion: reduce) {
+    .menu,
+    .menuOpen .menu {
+      transition: none;
+    }
+  }
   .menuLabel {
     display: block;
     margin: 0 0 8px;
