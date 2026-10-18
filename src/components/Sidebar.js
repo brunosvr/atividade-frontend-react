@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import menuIcon from '../assets/icons/mobile/menu.svg';
 import closeIcon from '../assets/icons/mobile/fechar.svg';
@@ -7,6 +7,19 @@ import styles from './Sidebar.module.css';
 
 function Sidebar(props) {
   const menuButton = useRef(null);
+  useEffect(() => {
+  if (!props.menuOpen || !window.matchMedia('(max-width: 1199px)').matches) {
+    return undefined;
+  }
+
+  window.scrollTo(0, 0);
+  const previousOverflow = document.body.style.overflow;
+  document.body.style.overflow = 'hidden';
+
+  return () => {
+    document.body.style.overflow = previousOverflow;
+  };
+}, [props.menuOpen]);
 
   function toggleMenu() {
     props.setMenuOpen(!props.menuOpen);
