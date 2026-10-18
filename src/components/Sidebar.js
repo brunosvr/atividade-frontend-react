@@ -6,29 +6,46 @@ import { navigation } from '../data/navigation';
 import styles from './Sidebar.module.css';
 
 function Sidebar(props) {
+  const setMenuOpen = props.setMenuOpen;
   const menuButton = useRef(null);
   const [toggled, setToggled] = useState(false);
+
   useEffect(() => {
-  if (!props.menuOpen || !window.matchMedia('(max-width: 1199px)').matches) {
-    return undefined;
-  }
+    if (!props.menuOpen) {
+      return;
+    }
 
-  window.scrollTo(0, 0);
-  const previousOverflow = document.body.style.overflow;
-  document.body.style.overflow = 'hidden';
+    const mobileViewport = window.matchMedia('(max-width: 1199px)');
 
-  return () => {
-    document.body.style.overflow = previousOverflow;
-  };
-}, [props.menuOpen]);
+    function handleViewportChange() {
+      if (!mobileViewport.matches) {
+        setMenuOpen(false);
+      }
+    }
+
+    if (!mobileViewport.matches) {
+      setMenuOpen(false);
+      return;
+    }
+
+    window.scrollTo(0, 0);
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    mobileViewport.addEventListener('change', handleViewportChange);
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      mobileViewport.removeEventListener('change', handleViewportChange);
+    };
+  }, [props.menuOpen, setMenuOpen]);
 
   function toggleMenu() {
     setToggled(true);
-    props.setMenuOpen(!props.menuOpen);
+    setMenuOpen(!props.menuOpen);
   }
 
   function closeMenu() {
-    props.setMenuOpen(false);
+    setMenuOpen(false);
     if (props.menuOpen) {
       menuButton.current.focus();
     }
@@ -56,12 +73,12 @@ function Sidebar(props) {
           aria-controls="main-navigation"
           onClick={toggleMenu}
         >
-            <img
-              key={props.menuOpen ? 'close' : 'open'}
-              className={toggled ? styles.iconAnimated : undefined}
-              src={props.menuOpen ? closeIcon : menuIcon}
-             alt=""
-            />
+          <img
+            key={props.menuOpen ? 'close' : 'open'}
+            className={toggled ? styles.iconAnimated : undefined}
+            src={props.menuOpen ? closeIcon : menuIcon}
+            alt=""
+          />
         </button>
       </div>
       <nav id="main-navigation" className={styles.menu} aria-label="Menu principal">
