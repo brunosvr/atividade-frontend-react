@@ -7,7 +7,7 @@ import styles from './Sidebar.module.css';
 
 function Sidebar(props) {
   const menuButton = useRef(null);
-    const [toggled, setToggled] = useState(false);
+  const [toggled, setToggled] = useState(false);
   useEffect(() => {
   if (!props.menuOpen || !window.matchMedia('(max-width: 1199px)').matches) {
     return undefined;

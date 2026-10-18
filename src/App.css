@@ -38,7 +38,7 @@
 
   .main-content.menu-open {
     visibility: hidden;
-    transition: visibility 0s linear 0.4s;
+    transition: visibility 0s linear 0.7s;
   }
 
   .main-content h1 {
